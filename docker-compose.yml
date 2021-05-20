@@ -1,0 +1,58 @@
+version: '2.1'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: jira_db
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_LOG_CONSOLE=true
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=jira
+      - MYSQL_USER=jira
+      - MYSQL_PASSWORD=123456
+    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_general_ci', '--lower_case_table_names=1']
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    ports: 
+      - 3306:3306
+    networks: 
+      vpn:
+        ipv4_address: 172.168.88.2
+    # healthcheck:
+    #     test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+    #     timeout: 5s
+    #     retries: 10
+    restart: always
+
+
+  jira:
+    container_name: jira_srv
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TZ=Asia/Shanghai
+#      - JVM_MINIMUM_MEMORY=1g
+#      - JVM_MAXIMUM_MEMORY=12g
+#      - JVM_CODE_CACHE_ARGS='-XX:InitialCodeCacheSize=1g -XX:ReservedCodeCacheSize=8g'
+    volumes:
+      - ./jira/conf/server.xml:/opt/atlassian/jira/conf/server.xml
+      - ./jira/atlassian:/var/atlassian/jira
+    ports:
+      - "8080:8080"
+    networks: 
+      vpn:
+        ipv4_address: 172.168.88.3
+    depends_on:
+      - mysql
+    restart: always
+
+
+networks:
+  vpn:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  172.168.88.0/24
+          gateway: 172.168.88.1
