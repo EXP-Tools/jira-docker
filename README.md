@@ -65,7 +65,7 @@ cBugcHJ3DHgmuC67tKzi/8BJN5ISjAsAhRZIHEuQbkGoHCRSit5W4n8GSiYNQIUK0cCnanxR3KFT
 lht2tUwCQi3GkE=X02mi
 ```
 
-- 点击 `Next`，此时会要求填写 JIRA 管理员信息（不建议修改，后面恢复数据时会覆盖所有用户信息）：
+- 点击 `Next`，此时会要求填写 JIRA 管理员信息：
   - Full name:         Administrator
   - Email Address:     admin@xyz.com
   - Username:          admin
