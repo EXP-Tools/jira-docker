@@ -41,7 +41,7 @@ lht2tUwCQi3GkE=X02mi
   - Username:          admin
   - Password:          admin
   - Confirm Password:  admin
-- 然后在 Configure Email Notifications 选择 `later`（因为邮箱是假的），点击 `Finish`
+- 点击 `Next`，然后在 Configure Email Notifications 选择 `later`（因为邮箱是假的），点击 `Finish`
 - 最后配置语言、头像等，则完成 JIRA 初始化
 
 
