@@ -17,8 +17,8 @@ jira-docker
 ├── jira
 │   ├── crack .................. [docker 构建剧本]
 │   ├── atlassian .............. [jira web 数据]
-│       ├── export ............. [导出备份数据目录]
-│       └── import ............. [导入备份数据目录]
+│   │   ├── export ............. [导出备份数据目录]
+│   │   └── import ............. [导入备份数据目录]
 │   └── conf
 │       └── server.xml ......... [jira web 配置]
 ├── mysql
