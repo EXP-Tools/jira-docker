@@ -45,16 +45,16 @@ lht2tUwCQi3GkE=X02mi
 - 最后配置语言、头像等，则完成 JIRA 初始化
 
 
-## 可选：恢复数据
+## 可选：数据迁移
 
-前面创建的 JIRA 完全是空的，为了便于调试，可以恢复一些测试数据，步骤如下：
+前面创建的 JIRA 完全是空的，可以从其他 JIRA 迁移数据，例如从其他 JIRA 备份了 `jira-backup-20210520.zip` ，迁移步骤如下：
 
 - 执行命令：`cp backup/jira-backup-20210520.zip atlassian/import`
 - 访问 [http://localhost:8080/secure/admin/XmlRestore!default.jspa](http://localhost:8080/secure/admin/XmlRestore!default.jspa)
 - 在 File name 填入 `jira-backup-20210520.zip`，然后点击 `Restore`
 - 恢复数据完成后重新登陆即可
 
-> 注：恢复数据范围包括用户数据，其中管理员账号为 `admin/admin`，故前面创建的管理员账号若不是这个，则已经不存在了。其他用户可自行在用户管理中查看，所有用户的密码都是其账号名。
+> 注：数据迁移是全库迁移，所以范围包括用户数据，故前面创建的管理员账号在迁移后已经不存在了。另外 License 也会受到迁移影响，慎用此功能。
 
 
 
