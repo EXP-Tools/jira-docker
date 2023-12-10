@@ -30,6 +30,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: root
     environment:
       - TZ=Asia/Shanghai
 #      - JVM_MINIMUM_MEMORY=1g
